@@ -26,4 +26,8 @@ Steps in setting up kernel
 Resources
 ---------
 
-#. http://www.cse.iitb.ac.in/~puru/courses/spring16/index.html
+#. http://www.cse.iitb.ac.in/~puru/courses/spring16/index.html (main page)
+
+#. http://arjunsreedharan.org/post/82710718100/kernel-101-lets-write-a-kernel (kernel examples)
+
+#. http://www.brokenthorn.com/Resources/OSDevIndex.html

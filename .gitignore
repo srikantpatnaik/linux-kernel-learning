@@ -1,2 +1,4 @@
 compressed-files
 linux-4.3.3
+a.out
+*.c
