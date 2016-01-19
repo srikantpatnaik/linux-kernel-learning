@@ -1,33 +1,35 @@
-Steps in setting up kernel
-==========================
+Linux kernel/driver learning
+============================
 
-#. Download ``mini.iso`` x86_64 for Ubuntu 14.04
+This repository is an attempt to provide a step by step approach to 
+Linux kernel. 
 
-#. Install `Virtualbox` ::
+The basic building blocks 
+-------------------------
 
-	sudo apt-get install Virtualbox
+#. ``C`` programming & debugging :: 
 	
-#. Create a virtual disk with sensible size(anyway its dynamic), install 
-   Ubuntu minimal netinstall version in Virtualbox(search online if you fail)
+	The directory ``c-programming-for-kernel`` consists of essential 
+	concepts required for a kernel programmer. 
 
-#. Set up a static IP in /etc/network/interfaces (if you're accessing it over
-   network)
 
-#. Install few more packages inside VM ::
+#. ``Operating system`` fundamentals ::
 
-	sudo apt-get install vim libncurses5-dev gcc make git exuberant-ctags bc libssl-dev
+	Coming next.
 
-#. You may use following command to start VM next time ::
+Kernel build environment
+------------------------
 
-	VBoxManage startvm <your-VM-name> --type headless
+#. Coming soon. 
 
-#. Browse ``docs`` directory for step by step instructions.
+Device driver development
+-------------------------
 
-Resources
----------
+#. This section will host details with various types of hardware and their 
+   kernel device drivers(modules). We will spend most of the time on this.
 
-#. http://www.cse.iitb.ac.in/~puru/courses/spring16/index.html (main page)
+Core kernel development
+-----------------------
 
-#. http://arjunsreedharan.org/post/82710718100/kernel-101-lets-write-a-kernel (kernel examples)
+#. Yet to plan.
 
-#. http://www.brokenthorn.com/Resources/OSDevIndex.html
