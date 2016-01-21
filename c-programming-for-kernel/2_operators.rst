@@ -10,7 +10,7 @@ Operators
    ignored.
 
 #. Conditional operator(a.k.a ternary operator) requires three mandatory
-   operands. Think it as a if/else conditional. Example, `conditional.c <./src/conditional.c>`_
+   operands. Think it as a if/else conditional. Example, `conditional.c <./src/conditionals.c>`_
 
 	.. code-block:: c
 
