@@ -1,6 +1,12 @@
-// sizeof.c 
-// Demo of compile time and run time instructions 
-		
+/*******************************************************************
+* filename: sizeof.c
+* author: Srikant Patnaik (srikant@gnu-linux.org)
+* license: GNU GPLv3
+* first written: 20-01-2016
+* last modified: 21-01-2016
+* description: compile time and runtime operators
+*******************************************************************/
+
 #include<stdio.h>
 
 int main()
