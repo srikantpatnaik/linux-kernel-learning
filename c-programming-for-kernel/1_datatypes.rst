@@ -1,7 +1,11 @@
 Datatypes
 ---------
 
+#. In integer(int) variable, the MSB(most significant bit a.k.a signed bit) carries the
+   sign(positive(0)/negative(1)) of the variable. Details in ``/usr/include/limits.h``.
 
+#. Use ``unsigned`` qualifiers if you are using only positive numbers. This will increase the
+   range as the MSB will now act as data bit instead of ``signed bit``. 
 
 
 #. ``C`` operators could be ``compile time`` or a ``run time`` instruction. One must be very
