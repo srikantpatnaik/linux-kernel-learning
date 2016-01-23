@@ -69,4 +69,56 @@ Operators
 			return 0;
 		}
 
-#.
+#. Bitwise operations can be useful in memory optimizations. Multiple variables can be
+   fit into single variable(provided all bits fit). Example, `bitwise_optimization.c <./src/bitwise_optimization.c>`_
+
+	.. code-block:: c
+
+		#include <stdio.h>
+
+		#define MASK 255 // 0xFF
+
+		int main()
+		{
+			short int a = 5, b = 254, c; // 2 byte variable
+			// a = 5 (101),  b = 254 (1111 1110)
+			// we can store both a,b inside c and save some memory
+			c = a << 8; // c = (0000 0101 0000 0000)
+			c = c | b;  // c = (0000 0101 1111 1110), No need of shifting
+			// At this point we can destroy a, b variable
+			// To retrieve value of 'a' from 'c'
+			printf("a = %d",c>>8);
+			printf("\nb = %d",c & MASK);
+			return 0;
+		}
+
+#. Controlling a single bit of a variable. Example, `bitwise_onoff.c <./src/bitwise_onoff.c>`_
+
+	.. code-block:: c
+
+		#include <stdio.h>
+
+		printbits(short int x)
+		{
+			int i;
+			for(i=15; i>=0; i--) {
+				printf("%d", x>>i & 0x1);
+				if (!(i % 4)) {
+					printf(" "); // insert space after 4 characters
+				}
+			}
+			printf("\n");
+		}
+
+		int main()
+		{
+			short int a = 255, b = 1; // 2 byte variable
+			// a = 255 (0000 0000 1111 1111)
+			printbits(a);
+			// Turn ON 13th bit (from right to left)
+			// It should look like this (0001 0000 1111 1111)
+			printbits(a | (b << 12));
+			// Similarly, for OFF, perform bitwise AND operation
+			return 0;
+		}
+
