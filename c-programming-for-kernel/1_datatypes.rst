@@ -69,5 +69,3 @@ Datatypes
 
 	This prints ``a=1``, which means the runtime unary operator ``++`` inside ``sizeof()`` never
 	gets called.
-
-#. This is next.
