@@ -47,7 +47,7 @@ Functions
    have external linkage, hence it can be accessed by any other file.
    To use the symbol in other file, one must declare it again as ``extern int x``.
 
-#. A function decleration is desired to stop program to pass arbitrary number of arguments.
+#. A function declaration is desired to stop program to pass arbitrary number of arguments.
 
 #. Although, it is not required to declare the function in calling file, but adding it
    helps programmer to identify the scope of the function. Example, ``extern int add(int, int)`` in
@@ -56,5 +56,48 @@ Functions
 #. The ``static`` keyword when added to symbols, allow them to link internal only(can't be called
    from other files in the project).
 
+#. The ``variadic function`` can accept variable number of arguments, example, ``printf()``.
+
+#. ``stdarg.h`` declares a type, ``va_list`` for handling variadic functions. ``va_list`` defines
+   four macros, ``va_start``, ``va_arg``, ``va_copy``, and ``va_end``.
+   Example, `variadic.c <.src/variadic.c>`_
+
+	.. code-block:: c
+
+		#include <stdio.h>
+		#include <stdarg.h>
+
+		// declaring a variadic function. The count variable holds number of
+		// incoming arguments. Although, such arrangement is not enforced by
+		// C language or compiler, but it is always easier to iterate if
+		// count is known.
+		int products(int count, ...);
+
+		int products(int count, ...)
+		{
+			va_list pr;
+			int product = 1;
+			int i=0;
+
+			// requires last fixed argument for address, in our case the only argument count.
+			va_start(pr, count);
+
+			for(; i < count; i++) {
+				// va_arg expects va_list, and type of the next variable. On every invocation
+				// it returns the value in the next argument.
+				product*=va_arg(pr, int);
+			}
+			// ending/freeing memory is highly recommended
+			va_end(pr);
+
+			return product;
+		}
+
+		int main()
+		{
+			// calling variadic function
+			printf("The result is %d", products(4, 22, 11, 2, 1));
+			return 0;
+		}
 
 
