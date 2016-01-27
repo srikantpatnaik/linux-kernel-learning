@@ -47,7 +47,8 @@ Functions
    have external linkage, hence it can be accessed by any other file.
    To use the symbol in other file, one must declare it again as ``extern int x``.
 
-#. A function declaration is desired to stop program to pass arbitrary number of arguments.
+#. A function declaration is desired to stop program to pass arbitrary number of arguments. One may
+   create a local header file and include the function declarations to avoid repetitions.
 
 #. Although, it is not required to declare the function in calling file, but adding it
    helps programmer to identify the scope of the function. Example, ``extern int add(int, int)`` in
