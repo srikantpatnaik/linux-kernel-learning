@@ -21,11 +21,21 @@ Pointers
 		{
 			// Declare pointer. The "*" denotes pointer, and can hold 8 byte address of a char
 			char *a, w=5;
-			const short *b, x; //with const keyword the value of b cannot be modified
+			const short *b, x; // With const keyword the value of b cannot be modified
 			int *c, y=1000;
 			long double *d, z;
-			printf("Pointer size: %ld, %ld, %ld, %ld", sizeof(a), sizeof(b), sizeof(c), sizeof(d));
+
+			void *p ; // Can store address of any datatype also called *generic pointer*
+			// Storing address of char variable 
+			p = &w; 
+			// Changing void pointer character pointer by type casting
+			*(char *)p = 10; // Modifying w with 10
+			printf("Void pointer type casted to hold 'char' address and modified w to %d", *(char *)p);
+			// Similarly void pointer can be type casted to any other datatype
+
+			printf("\nPointer size: %ld, %ld, %ld, %ld", sizeof(a), sizeof(b), sizeof(c), sizeof(d));
 			printf("\nDatatype size: %ld, %ld, %ld, %ld", sizeof(w), sizeof(x), sizeof(y), sizeof(z));
+
 			a = &w;
 			// Format specifier for pointer is %p
 			// Pointer 'a' contains address of 'w', printing address & value at that address
@@ -44,9 +54,8 @@ Pointers
 			// will point to base address of the segment
 			b = &x;
 			//*b = 22; // Uncomment to get the read-only error as b is const type
-			printf("\nAddress held by b is %d", *b) ;
+			printf("\nAddress held by b is %d", *b);
 			// Dangling pointer will treated later, mostly after malloc()
 			return 0;
 		}
-
 
