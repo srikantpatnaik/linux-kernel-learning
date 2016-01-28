@@ -11,7 +11,7 @@ Pointers
    as mentioned, all pointers can hold 8 byte address, but it is required
    to specify datatype to fetch correct length of data from the stored address.
 
-#. Example, `pointers.c <.src/pointers.c>`_
+#. Example, `pointers.c <./src/pointers.c>`_
 
 	.. code-block:: c
 
