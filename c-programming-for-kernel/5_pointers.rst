@@ -57,5 +57,8 @@ Pointers
 			printf("\nAddress held by b is %d", *b);
 			// Dangling pointer will treated later, mostly after malloc()
 			return 0;
+			/* This example section might grow*/
+		
 		}
 
+#. 
