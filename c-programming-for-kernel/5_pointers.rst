@@ -61,4 +61,56 @@ Pointers
 		
 		}
 
+#. Example on how to declare and call function through pointers, `pointer_to_function-I.c <./src/pointer_to_function-I.c>`_
+
+	.. code-block:: c
+
+		#include<stdio.h>
+
+		int add(int a, int b)
+		{
+			printf("I'm in add function\n");
+			return(a+b);
+		}
+
+		int main()
+		{
+			int x;
+			// declare pointer to a function. 'int' is returned and accepts int arguments
+			int (*p)(int, int) = &add;
+			// invokes the function (unlike datatypes which fetch the value, ofcourse)
+			x = (*p)(10, 5);
+			printf("Sum returned from add function is %d", x);
+			/*Looks complex? Check the next*/
+		}
+
+#. Example, pointer to a function returning integer pointer, `pointer_to_function-II.c <./src/pointer_to_function-II.c>`_
+
+	.. code-block:: c
+
+		#include<stdio.h>
+
+		// function returning integer pointer, i.e address of variable
+		int * add(int a, int b)
+		{   // must use static to retain value across functions
+			static int result;
+			result = a + b;
+			printf("address of result: %p\n", &result);
+			// seg fault if return statement not provided
+			return &result;
+		}
+
+		int main()
+		{
+			// declare a pointer type to hold address of result from add function
+			int *x;
+			// declare pointer to a function. 'integer' pointer is returned and accepts integer arguments
+			int * (*p)(int, int) = &add;
+			// invokes the function and expects integer pointer as return value
+			x = (*p)(10, 5);
+			printf("Value stored at address held by 'result': %d\n", *x);
+			printf("Address stored in 'result' returned from 'add' function: %p", x);
+			/* There are even more, check out yourself*/
+		}
+
 #. 
