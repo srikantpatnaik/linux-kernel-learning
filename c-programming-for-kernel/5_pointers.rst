@@ -113,4 +113,37 @@ Pointers
 			/* There are even more, check out yourself*/
 		}
 
-#. 
+#. The arrays are internally referenced as pointers. For eg;
+   The compiler reserves 20 bytes(4 bytes x 5) for ``int a[5]``.
+
+#. Array passed as function argument doesn't reserves any extra bytes, despite, compiler
+   internally points to original array. Hence any modification in array in passing function
+   will reflect in original array. Example, `pointer_to_array.c <./src/pointer_to_array.c>`_
+
+	.. code-block:: c
+
+		#include<stdio.h>
+
+		int reverse(int b[])
+		{   int i;
+			for(i=4;i>=0;i--){
+				b[4-i]=b[i];
+			}
+		}
+
+		int main()
+		{
+
+		int a[5] = {10, 20, 30, 40, 50};
+		printf("sizeof array a: %d\n", sizeof(a)); 
+
+		// arrays are internally treated as pointers
+		printf("Accessing the array with pointer: %d, %d\n", *(a), *(a+1));
+
+		reverse(a);
+		// passing array to function will actually pass pointer to array, hence operation on array
+		// will affect all copies of that array 
+		printf("Accessing the array with pointer after reverse operation in other function: %d, %d\n", *(a), *(a+1));
+		}
+
+
