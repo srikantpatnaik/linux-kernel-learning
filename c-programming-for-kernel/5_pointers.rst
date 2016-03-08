@@ -144,6 +144,37 @@ Pointers
 		// passing array to function will actually pass pointer to array, hence operation on array
 		// will affect all copies of that array 
 		printf("Accessing the array with pointer after reverse operation in other function: %d, %d\n", *(a), *(a+1));
+		/*explore more*/
+		
 		}
 
+#.  Example, 2D array and accessing them using pointers `2d_array.c <./src/2d_array.c>`_ 
 
+	.. code-block:: c
+
+		#include<stdio.h>
+
+		int main()
+		{
+
+		int i, j;
+
+		// 3 rows 2 columns
+		int a[3][2] = {{10, 20}, \
+					   {30, 40}, \
+					   {50, 60}};
+		printf("sizeof array a: %d\n", sizeof(a)); 
+
+		for(i=0;i<3;i++) {
+			for(j=0;j<2;j++) {
+				// uncomment next line to access elements using indexing
+				//printf("%d, ", a[i][j]); 
+				// accessing array elements using pointers(same result)
+				printf("2D array using pointers: %d ([%d %d] %p), ", *(*(a+i)+j), i, j, &(*(*(a+i)+j)));
+			}
+			printf("\n");
+			/*explore more*/
+		}
+		}
+
+#. 
