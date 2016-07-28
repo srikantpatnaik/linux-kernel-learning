@@ -48,7 +48,7 @@ Datatypes
    range as the MSB will now act as data bit instead of ``signed bit``.
 
 
-#. ``C`` operators could be ``compile time`` or a ``run time`` instruction. One must be very
+#. ``C`` operators could be ``compile time`` or a ``run time`` instruction. One must be 
    careful while using them together.
    A *compile time* instruction will assign value at compile time and will not change during
    execution. Whereas, a *run time* instruction gets updated during execution.

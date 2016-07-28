@@ -1,7 +1,7 @@
 Functions
 ---------
 
-#. Variables fall under four storage classes: ``Automatic, Static, Register, External or Global``
+#. Variables fall under four storage classes: ``Automatic, Register, Static, External or Global``
 
 #. Variables defined inside a ``{ }`` have the ``block scope``, which means variable get destroyed
    when control moves out of the scope.

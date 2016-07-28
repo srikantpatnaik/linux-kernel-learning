@@ -4,11 +4,11 @@ Pointers
 #. Pointer size depends on system's address bus size. For a 64 bit
    machine, pointer occupies 8 bytes.
 
-#. Pointers are regular variables, they just meant to store address. 
-   Its also possible to retrieve data from the stored address. 
+#. Pointers are regular variables, they store addresses. 
+   It's also possible to retrieve data from the stored addresses. 
 
-#. An integer pointer is capable of holding address of integer, although
-   as mentioned, all pointers can hold 8 byte address, but it is required
+#. An integer pointer is capable of holding address of an integer, however,
+   all pointers can hold 8 byte address, but it is required
    to specify datatype to fetch correct length of data from the stored address.
 
 #. Example, `pointers.c <./src/pointers.c>`_
@@ -28,7 +28,7 @@ Pointers
 			void *p ; // Can store address of any datatype also called *generic pointer*
 			// Storing address of char variable 
 			p = &w; 
-			// Changing void pointer character pointer by type casting
+			// Changing void pointer to character pointer by type casting
 			*(char *)p = 10; // Modifying w with 10
 			printf("Void pointer type casted to hold 'char' address and modified w to %d", *(char *)p);
 			// Similarly void pointer can be type casted to any other datatype
@@ -135,15 +135,15 @@ Pointers
 		{
 
 		int a[5] = {10, 20, 30, 40, 50};
-		printf("sizeof array a: %d\n", sizeof(a)); 
+		printf("sizeof array a: %d bytes\n", sizeof(a)); 
 
 		// arrays are internally treated as pointers
-		printf("Accessing the array with pointer: %d, %d\n", *(a), *(a+1));
+		printf("Accessing the array with pointer: a = %d, a+1 = %d\n", *(a), *(a+1));
 
 		reverse(a);
 		// passing array to function will actually pass pointer to array, hence operation on array
 		// will affect all copies of that array 
-		printf("Accessing the array with pointer after reverse operation in other function: %d, %d\n", *(a), *(a+1));
+		printf("Accessing the array with pointer after *reverse* operation in other function: a = %d, a+1 = %d\n", *(a), *(a+1));
 		/*explore more*/
 		
 		}
@@ -163,7 +163,7 @@ Pointers
 		int a[3][2] = {{10, 20}, \
 					   {30, 40}, \
 					   {50, 60}};
-		printf("sizeof array a: %d\n", sizeof(a)); 
+		printf("sizeof array a (3rows x 2 cols): %d\n", sizeof(a)); 
 
 		for(i=0;i<3;i++) {
 			for(j=0;j<2;j++) {
@@ -175,6 +175,3 @@ Pointers
 			printf("\n");
 			/*explore more*/
 		}
-		}
-
-#. 
